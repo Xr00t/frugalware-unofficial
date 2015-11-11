@@ -23,4 +23,7 @@ build() {
 				Fexec sed -i 's/_summary/summary/g;s/_description/description/g;' org.gnome.nautilus.gschema.xml.in
     		Fexec cp org.gnome.nautilus.gschema.xml.in /usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
 				Ffileschmod	/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml 0755
+				Fexec glib-compile-schemas /usr/share/glib-2.0/schemas
+				Fexec update-desktop-database -q		
+				Fexec gtk-update-icon-cache -q -t -f usr/share/icons/hicolor		
 }
