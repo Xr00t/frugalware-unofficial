@@ -28,7 +28,7 @@ md5sums=('2ec596e237c2f3af1d7d3f5b9c12884f')
 #				Fexec gtk-update-icon-cache -q -t -f usr/share/icons/hicolor		
 #}
 
-build() {
+Fbuild() {
   cd "${Fsrcdir}/file-roller-${pkgver}"
   ./configure --prefix=/usr --sysconfdir=/etc \
       --libexecdir=/usr/lib/file-roller \
@@ -38,9 +38,9 @@ build() {
       # Configure file-roller without nautilus-actions
   Fmake
   cd "${Fsrcdir}/file-roller-${pkgver}"
-  Fmake DESTDIR="${pkgdir}" install
+  Fmakeinstall FDESTDIR="${pkgdir}"
 
   # Hack to run file-roller without nautilus
   Fsed -i 's/_summary/summary/g;s/_description/description/g;' ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in
-  Finstall -Dm755 ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+  Fexe ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
 }
