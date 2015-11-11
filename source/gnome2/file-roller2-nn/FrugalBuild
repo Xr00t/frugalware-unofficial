@@ -29,7 +29,7 @@ md5sums=('2ec596e237c2f3af1d7d3f5b9c12884f')
 #}
 
 build() {
-  Fcd "${Fsrcdir}/file-roller-${pkgver}"
+  cd "${Fsrcdir}/file-roller-${pkgver}"
   ./configure --prefix=/usr --sysconfdir=/etc \
       --libexecdir=/usr/lib/file-roller \
       --localstatedir=/var --disable-static \
@@ -40,7 +40,7 @@ build() {
 }
 
 package() {
-    Fcd "${Fsrcdir}/file-roller-${pkgver}"
+    cd "${Fsrcdir}/file-roller-${pkgver}"
     Fmake DESTDIR="${pkgdir}" install
 
     # Hack to run file-roller without nautilus
