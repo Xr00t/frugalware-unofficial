@@ -12,7 +12,7 @@ source=("http://nitrux.in/downloads/files/free/${pkgname}-${pkgver}.tar.gz")
 md5sums=('63192602b948f66c27a901aa8f4428b0')
 
 Fbuild() {
-  mkdir -p "${Fpkgdir}/usr/share/icons/"
-  cp -r "${Fsrcdir}/Compass" "${Fpkgdir}/usr/share/icons/Compass"
+  mkdir -p "${pkgdir}/usr/share/icons/"
+  cp -r "${srcdir}/Compass" "${pkgdir}/usr/share/icons/Compass"
   Finstall FDESTDIR="${pkgdir}"
 }
