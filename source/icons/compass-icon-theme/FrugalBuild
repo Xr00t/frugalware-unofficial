@@ -13,9 +13,6 @@ md5sums=('63192602b948f66c27a901aa8f4428b0')
 
 Fbuild() {
   mkdir -p "${Fpkgdir}/usr/share/icons/"
-  Fcp -r "${Fsrcdir}/Compass" "${Fpkgdir}/usr/share/icons/Compass"
-
-  install -Dm644 "${srcdir}/Compass/COPYING" \
-    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-}	
+  cp -r "${Fsrcdir}/Compass" "${Fpkgdir}/usr/share/icons/Compass"
+  Fmakeinstall FDESTDIR="${pkgdir}"
 }
