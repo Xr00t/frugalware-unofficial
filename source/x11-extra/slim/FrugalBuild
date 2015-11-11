@@ -21,8 +21,7 @@ Fbuild() {
   cd "${Fsrcdir}/slim-${pkgver}"
   Fmakeinstall FDESTDIR="${pkgdir}"
   mv /var/fst/unofficial/source/x11-extra/slim/slim.pam "$pkgdir/etc/pam.d/slim"
-  sed -i -e 's|#xserver_arguments.*|xserver_arguments -nolisten tcp vt07|' \
-         -e 's|/var/run/slim.lock|/var/lock/slim.lock|' \
-    "$pkgdir/etc/slim.conf"
+  mv /var/fst/unofficial/source/x11-extra/slim/slim.service /usr/lib/systemd/system/slim.service
+	mv /var/fst/unofficial/source/x11-extra/slim/slim.conf /etc/slim.conf
   rm "$pkgdir/usr/bin/slimlock" "$pkgdir/usr/share/man/man1/slimlock.1"
 }
