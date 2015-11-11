@@ -4,7 +4,7 @@ pkgrel=1
 archs=('i686' 'x86_64')
 url="http://sourceforge.net/projects/slim.berlios/"
 license=('GPL2')
-makedepends=('cmake' 'pam' 'libxmu' 'libpng' 'libjpeg' 'libxft' 'libxrandr')
+makedepends=('cmake' 'pam' 'libxmu' 'libpng' 'libjpeg' 'libxft' 'libxrandr' 'randrproto')
 source=("http://downloads.sourceforge.net/project/slim.berlios/slim-${pkgver}.tar.gz"
         "http://downloads.sourceforge.net/project/slim.berlios/slim-fingerprint.tar.gz")
 md5sums=('d40d256394f9ef34cef34d2aa9cb52e6'
@@ -14,13 +14,13 @@ Fbuild() {
   cd "${Fsrcdir}/slim-${pkgver}"
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_SKIP_RPATH=ON \
-    -DUSE_PAM=yes \
+    -DUSE_PAM=no \
     -DUSE_CONSOLEKIT=no \
     -DBUILD_SHARED_LIBS=no
   Fmake
   cd "${Fsrcdir}/slim-${pkgver}"
   Fmakeinstall FDESTDIR="${pkgdir}"
-  mv /var/fst/unofficial/source/x11-extra/slim/slim.pam "$pkgdir/etc/pam.d/slim"
+  #mv /var/fst/unofficial/source/x11-extra/slim/slim.pam "$pkgdir/etc/pam.d/slim"
   mv /var/fst/unofficial/source/x11-extra/slim/slim.service /usr/lib/systemd/system/slim.service
 	mv /var/fst/unofficial/source/x11-extra/slim/slim.conf /etc/slim.conf
   rm "$pkgdir/usr/bin/slimlock" "$pkgdir/usr/share/man/man1/slimlock.1"
