@@ -1,7 +1,7 @@
 pkgname=slim
 pkgver=1.3.6
 pkgrel=1
-arch=('i686' 'x86_64')
+archs=('i686' 'x86_64')
 url="http://sourceforge.net/projects/slim.berlios/"
 license=('GPL2')
 makedepends=('cmake' 'pam' 'libxmu' 'libpng' 'libjpeg' 'libxft' 'libxrandr')
