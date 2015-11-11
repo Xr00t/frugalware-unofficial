@@ -5,8 +5,8 @@ archs=('i686' 'x86_64')
 url="http://sourceforge.net/projects/slim.berlios/"
 license=('GPL2')
 makedepends=('cmake' 'pam' 'libxmu' 'libpng' 'libjpeg' 'libxft' 'libxrandr')
-source=('http://downloads.sourceforge.net/project/slim.berlios/slim-${pkgver}.tar.gz'
-        'http://downloads.sourceforge.net/project/slim.berlios/slim-fingerprint.tar.gz')
+source=("http://downloads.sourceforge.net/project/slim.berlios/slim-${pkgver}.tar.gz"
+        "http://downloads.sourceforge.net/project/slim.berlios/slim-fingerprint.tar.gz")
 md5sums=('d40d256394f9ef34cef34d2aa9cb52e6'
 				 '2981627a5822a535f3ebd0e21dba9f76')
 
