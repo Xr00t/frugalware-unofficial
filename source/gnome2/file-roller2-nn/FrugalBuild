@@ -19,7 +19,6 @@ Fbuild() {
       --localstatedir=/var --disable-static \
       --disable-scrollkeeper \
       --disable-nautilus-actions
-      # Configure file-roller without nautilus-actions
   Fmake
   cd "${Fsrcdir}/file-roller-${pkgver}"
   Fmakeinstall FDESTDIR="${pkgdir}"
