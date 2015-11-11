@@ -12,22 +12,6 @@ url="http://www.gnome.org"
 source=(http://ftp.gnome.org/pub/gnome/sources/file-roller/${pkgver%.*}/file-roller-${pkgver}.tar.bz2)
 md5sums=('2ec596e237c2f3af1d7d3f5b9c12884f')
 
-#build() {
-#				Fcd
-#  			Fexec ./configure --prefix=/usr --sysconfdir=/etc \
-#      						--libexecdir=/usr/lib/file-roller \
-#      						--localstatedir=/var --disable-static \
-#      						--disable-scrollkeeper \
-#      						--disable-nautilus-actions
-#  			Fexec make
-#				Fexec sed -i 's/_summary/summary/g;s/_description/description/g;' org.gnome.nautilus.gschema.xml.in
-#    		Fexec cp org.gnome.nautilus.gschema.xml.in /usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
-#				Ffileschmod	/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml 0755
-#				Fexec glib-compile-schemas /usr/share/glib-2.0/schemas
-#				Fexec update-desktop-database -q		
-#				Fexec gtk-update-icon-cache -q -t -f usr/share/icons/hicolor		
-#}
-
 Fbuild() {
   cd "${Fsrcdir}/file-roller-${pkgver}"
   ./configure --prefix=/usr --sysconfdir=/etc \
