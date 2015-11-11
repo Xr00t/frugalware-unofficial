@@ -9,10 +9,8 @@ license=('GPL')
 depends=('desktop-file-utils' 'gconf>=2.32.0' 'hicolor-icon-theme' 'dconf')
 makedepends=('gnome-doc-utils' 'intltool')
 url="http://www.gnome.org"
-source=(http://ftp.gnome.org/pub/gnome/sources/file-roller/${pkgver%.*}/file-roller-${pkgver}.tar.bz2
-        org.gnome.nautilus.gschema.xml.in)
-md5sums=('2ec596e237c2f3af1d7d3f5b9c12884f'
-         '8d419450010031aa29a07505d83bab78')
+source=(http://ftp.gnome.org/pub/gnome/sources/file-roller/${pkgver%.*}/file-roller-${pkgver}.tar.bz2)
+md5sums=('2ec596e237c2f3af1d7d3f5b9c12884f')
 
 build() {
 				Fcd
