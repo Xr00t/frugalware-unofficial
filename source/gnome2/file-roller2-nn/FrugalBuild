@@ -41,6 +41,6 @@ Fbuild() {
   Fmakeinstall FDESTDIR="${pkgdir}"
 
   # Hack to run file-roller without nautilus
-  Fsed -i 's/_summary/summary/g;s/_description/description/g;' ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in
-  Fexe ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+  Fsed -i 's/_summary/summary/g;s/_description/description/g;' /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in
+  Fexe /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
 }
