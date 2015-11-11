@@ -18,7 +18,7 @@ Fbuild() {
     -DUSE_CONSOLEKIT=no \
 		-DBUILD_SLIMLOCK=no \
     -DBUILD_SHARED_LIBS=no
-  Fmake
+  make
   cd "${Fsrcdir}/slim-${pkgver}"
   Fmakeinstall FDESTDIR="${pkgdir}"
   #mv /var/fst/unofficial/source/x11-extra/slim/slim.pam "$pkgdir/etc/pam.d/slim"
