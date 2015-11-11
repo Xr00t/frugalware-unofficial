@@ -16,7 +16,7 @@ Fbuild() {
     -DCMAKE_SKIP_RPATH=ON \
     -DUSE_PAM=no \
     -DUSE_CONSOLEKIT=no \
-		-BUILD_SLIMLOCK=no \
+		-DBUILD_SLIMLOCK=no \
     -DBUILD_SHARED_LIBS=no
   Fmake
   cd "${Fsrcdir}/slim-${pkgver}"
