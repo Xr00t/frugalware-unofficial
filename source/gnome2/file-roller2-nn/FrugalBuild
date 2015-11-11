@@ -39,8 +39,9 @@ Fbuild() {
   Fmake
   cd "${Fsrcdir}/file-roller-${pkgver}"
   Fmakeinstall FDESTDIR="${pkgdir}"
-
-  # Hack to run file-roller without nautilus
-  Fsed -i 's/_summary/summary/g;s/_description/description/g;' /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in
-  Fexe /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+  sed -i 's/_summary/summary/g;s/_description/description/g;' /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in
+  Fmv /var/fst/unofficial/source/gnome2/file-roller2-nn/org.gnome.nautilus.gschema.xml.in ${pkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+	Fexec glib-compile-schemas /usr/share/glib-2.0/schemas
+	Fexec update-desktop-database -q		
+	Fexec gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor	
 }
