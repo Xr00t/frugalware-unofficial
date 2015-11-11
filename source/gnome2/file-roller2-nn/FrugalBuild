@@ -6,7 +6,7 @@ conflicts=('file-roller' 'nautilus')
 pkgdesc="Archive manipulator for GNOME without nautilus dependency. (no nautilus)"
 archs=('i686' 'x86_64')
 license=('GPL')
-depends=('desktop-file-utils' 'gconf>=2.32.0' 'hicolor-icon-theme' 'dconf')
+depends=('desktop-file-utils' 'gconf>=2.32.0' 'hicolor-icon-theme' 'dconf' 'renderproto' 'libxml2-python')
 makedepends=('gnome-doc-utils' 'intltool')
 url="http://www.gnome.org"
 source=(http://ftp.gnome.org/pub/gnome/sources/file-roller/${pkgver%.*}/file-roller-${pkgver}.tar.bz2)
@@ -37,13 +37,10 @@ build() {
       --disable-nautilus-actions
       # Configure file-roller without nautilus-actions
   Fmake
-}
+  cd "${Fsrcdir}/file-roller-${pkgver}"
+  Fmake DESTDIR="${pkgdir}" install
 
-package() {
-    cd "${Fsrcdir}/file-roller-${pkgver}"
-    Fmake DESTDIR="${pkgdir}" install
-
-    # Hack to run file-roller without nautilus
-    Fsed -i 's/_summary/summary/g;s/_description/description/g;' ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in
-    Finstall -Dm755 ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
+  # Hack to run file-roller without nautilus
+  Fsed -i 's/_summary/summary/g;s/_description/description/g;' ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in
+  Finstall -Dm755 ${Fsrcdir}/org.gnome.nautilus.gschema.xml.in ${Fpkgdir}/usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml
 }
