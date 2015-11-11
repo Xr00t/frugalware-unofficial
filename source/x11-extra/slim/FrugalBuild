@@ -21,7 +21,7 @@ Fbuild() {
   Fmake
   cd "${Fsrcdir}/slim-${pkgver}"
   #Fmakeinstall FDESTDIR="${pkgdir}"
-	make DESTDIR="$pkgdir" install
+	make DESTDIR="$Fpkgdir" install
   #mv /var/fst/unofficial/source/x11-extra/slim/slim.pam "$pkgdir/etc/pam.d/slim"
   mv /var/fst/unofficial/source/x11-extra/slim/slim.service /usr/lib/systemd/system/slim.service
 	mv /var/fst/unofficial/source/x11-extra/slim/slim.conf /etc/slim.conf
