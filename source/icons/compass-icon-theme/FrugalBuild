@@ -13,6 +13,6 @@ md5sums=('63192602b948f66c27a901aa8f4428b0')
 
 Fbuild() {
   mkdir -p "${pkgdir}/usr/share/icons/"
-  cp -r "${srcdir}/Compass" "${pkgdir}/usr/share/icons/Compass"
+  cp -r "${Fsrcdir}/Compass" "${pkgdir}/usr/share/icons/Compass"
   #Finstall FDESTDIR="${pkgdir}"
 }
