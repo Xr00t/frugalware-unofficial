@@ -17,15 +17,15 @@ options=('scriptlet' 'noccache')
 
 build()
 {
-	pkgname=glibc
+	mv glibc-$pkgver $pkgname-$pkgver
 	Fcd $pkgname-$pkgver
 	Fpatchall
 	Ffilerel nscd/nscd.conf /etc/nscd.conf
 	## use Fdie here and kill the build
 	## if we get any errors. -- crazy --
-	rm -rf ../glibc-build || Fdie
-	mkdir ../glibc-build || Fdie
-	cd ../glibc-build || Fdie
+	rm -rf ../glibc-multilib-build || Fdie
+	mkdir ../glibc-multilib-build || Fdie
+	cd ../glibc-multilib-build || Fdie
 
 	GLIBOPTS="--prefix=/usr \
 		--libdir=/usr/lib \
