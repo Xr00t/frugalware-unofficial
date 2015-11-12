@@ -53,6 +53,8 @@ build()
     --enable-multi-arch \
 		--enable-lock-elision=yes"
 
+
+	GLIBOPTS="$GLIBOPTS --build=$CARCH-frugalware-linux"
 	# glibc complains about our default flags are not agressive enough. let
 	# it use its own default ones
 	CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" CXX="g++" CC="gcc"  \
