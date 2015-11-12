@@ -9,7 +9,7 @@ rodepends=('tzdata' 'frugalware')
 groups=('base')
 archs=('x86_64')
 source=(http://ftp.gnu.org/pub/gnu/glibc/glibc-$pkgver.tar.xz)
-signatures=(http://ftp.gnu.org/pub/gnu/glibc/glibc-$pkgver.tar.xz.sig)
+md5sum=("e51e02bf552a0a1fbbdc948fb2f5e83c")
 
 source=(${source[@]} glibc-2.22-upstream-fixes.patch)
 signatures=(${signatures[@]} '')
