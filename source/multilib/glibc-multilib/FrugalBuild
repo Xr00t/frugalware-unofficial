@@ -9,7 +9,7 @@ rodepends=('tzdata' 'frugalware')
 groups=('base')
 archs=('x86_64')
 source=(http://ftp.gnu.org/pub/gnu/glibc/glibc-$pkgver.tar.xz)
-md5sum=("e51e02bf552a0a1fbbdc948fb2f5e83c")
+signatures=(http://ftp.gnu.org/pub/gnu/glibc/glibc-$pkgver.tar.xz.sig)
 
 source=(${source[@]} glibc-2.22-upstream-fixes.patch)
 signatures=(${signatures[@]} '')
@@ -17,6 +17,7 @@ options=('scriptlet' 'noccache')
 
 build()
 {
+	pkgname=glibc
 	Fcd $pkgname-$pkgver
 	Fpatchall
 	Ffilerel nscd/nscd.conf /etc/nscd.conf
